@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "career-pilot"
+version = "1.0.0"
+description = "Build ATS-optimized resumes, tailor per JD, auto-apply on LinkedIn & Naukri, and track everything."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Karthik Raja", url = "https://karthikraja.in"},
+]
+keywords = [
+    "resume", "ats", "job-search", "auto-apply", "linkedin",
+    "career", "cover-letter", "job-tracker",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business",
+]
+dependencies = [
+    "fpdf2>=2.8.0",
+    "pdfplumber>=0.11.0",
+    "playwright>=1.40.0",
+    "python-docx>=1.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/karthikraja14/career-pilot"
+Repository = "https://github.com/karthikraja14/career-pilot"
+Issues = "https://github.com/karthikraja14/career-pilot/issues"
+Author = "https://karthikraja.in"
+
+[project.scripts]
+career-pilot = "main:main"
+
+[tool.setuptools.packages.find]
+include = ["resume*", "jobs*", "apply*", "tracking*", "research*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

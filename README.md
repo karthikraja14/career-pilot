@@ -5,7 +5,8 @@
 Works for **any role**: engineering, product, design, data, marketing, finance, or anything else. Just configure your target roles in `config.py` and go.
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
-[![Tests](https://img.shields.io/badge/Tests-121%20passing-brightgreen.svg)]()
+[![CI](https://github.com/karthikraja14/career-pilot/actions/workflows/ci.yml/badge.svg)](https://github.com/karthikraja14/career-pilot/actions)
+[![Tests](https://img.shields.io/badge/Tests-169%20passing-brightgreen.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -78,6 +79,11 @@ pip install -r requirements.txt
 npx playwright install chromium
 ```
 
+Or install as a Python package:
+```bash
+pip install -e .
+```
+
 ### 2. Configure
 
 ```bash
@@ -124,7 +130,7 @@ python -m apply.finder --location Bangalore --min-score 50
 python -m tracking.dashboard                   # Open visual dashboard
 python -m research.salary_lookup "Google" "SDE"  # Salary research
 python -m research.connection_finder "Microsoft" # Find people to connect with
-python -m pytest tests/ -v                      # Run 121 tests
+python -m pytest tests/ -v                      # Run 169 tests
 ```
 
 ---
@@ -158,7 +164,7 @@ career-pilot/
 ├── research/                   # Career research
 │   ├── salary_lookup.py        # Salary research URL generator
 │   └── connection_finder.py    # LinkedIn networking URL generator
-├── tests/                      # 121 tests (pytest)
+├── tests/                      # 169 tests (pytest)
 ├── data/
 │   └── answers.example.json    # Template for form auto-fill answers
 ├── output/                     # Generated files (gitignored)
