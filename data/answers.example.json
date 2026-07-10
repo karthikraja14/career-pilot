@@ -1,0 +1,104 @@
+{
+  "_instructions": "Fill in YOUR real details below. The bot uses these to auto-fill application forms.",
+
+  "personal": {
+    "first_name": "",
+    "last_name": "",
+    "full_name": "",
+    "email": "",
+    "phone": "",
+    "phone_country_code": "+91",
+    "city": "",
+    "state": "",
+    "country": "India",
+    "zip_code": "",
+    "linkedin_url": "",
+    "github_url": "",
+    "portfolio_url": ""
+  },
+
+  "professional": {
+    "current_title": "",
+    "current_company": "",
+    "total_experience_years": "",
+    "relevant_experience_years": "",
+    "current_ctc_lpa": "",
+    "expected_ctc_lpa": "",
+    "notice_period_days": "30",
+    "notice_period_text": "30 days",
+    "willing_to_relocate": "Yes",
+    "preferred_locations": ["Bengaluru", "Chennai", "Hyderabad", "Pune", "Remote"],
+    "work_authorization": "Indian Citizen",
+    "visa_sponsorship_needed": "No",
+    "remote_preference": "Open to both remote and hybrid"
+  },
+
+  "education": {
+    "highest_degree": "",
+    "highest_degree_year": "",
+    "bachelors_degree": "",
+    "bachelors_year": "",
+    "university": ""
+  },
+
+  "skills": {
+    "primary_languages": ["Python", "Java"],
+    "testing_tools": ["Selenium", "Playwright", "Pytest"],
+    "ci_cd": ["Jenkins", "GitHub Actions", "Docker"],
+    "cloud": ["Azure", "AWS"],
+    "databases": ["MySQL"],
+    "methodologies": ["Agile", "Scrum"]
+  },
+
+  "common_questions": {
+    "why_looking": "",
+    "greatest_strength": "",
+    "leadership_experience": "",
+    "salary_expectation_range": "",
+    "are_you_legally_authorized": "Yes",
+    "will_you_now_or_in_future_require_sponsorship": "No",
+    "do_you_have_experience_with": {
+      "selenium": "Yes",
+      "playwright": "Yes",
+      "python": "Yes",
+      "java": "Yes",
+      "jenkins": "Yes",
+      "docker": "Yes",
+      "kubernetes": "Yes",
+      "aws": "Yes",
+      "azure": "Yes",
+      "ci_cd": "Yes",
+      "agile": "Yes",
+      "leadership": "Yes",
+      "team_management": "Yes",
+      "performance_testing": "Yes",
+      "api_testing": "Yes",
+      "mobile_testing": "Yes",
+      "security_testing": "Yes"
+    },
+    "years_experience_with": {
+      "python": "",
+      "java": "",
+      "selenium": "",
+      "playwright": "",
+      "jenkins": "",
+      "docker": "",
+      "kubernetes": "",
+      "aws": "",
+      "azure": "",
+      "test_automation": "",
+      "team_management": "",
+      "performance_testing": "",
+      "api_testing": ""
+    }
+  },
+
+  "resume_variants": {
+    "default": "output/Resume.pdf",
+    "lead_test_engineer": "output/Resume.pdf",
+    "test_architect": "output/Resume.pdf",
+    "qa_manager": "output/Resume.pdf"
+  },
+
+  "_note": "Add more Q&A pairs as you encounter new questions. The bot will try fuzzy matching."
+}

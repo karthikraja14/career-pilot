@@ -1,0 +1,50 @@
+# ─── Personal / Sensitive Data ─────────────────────────────────────────────────
+resume_data.py
+data/answers.json
+data/browser_state/
+data/apply_state.json
+data/found_jobs.json
+data/seen_job_ids.json
+data/external_apply_jobs.json
+data/resume_versions.json
+PLAN.md
+*.pdf
+*.jpg
+*.png
+
+# ─── Output Files ──────────────────────────────────────────────────────────────
+output/*
+reports/*
+applications/
+!output/.gitkeep
+!reports/.gitkeep
+
+# ─── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# ─── Node / Playwright ────────────────────────────────────────────────────────
+node_modules/
+package-lock.json
+
+# ─── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
