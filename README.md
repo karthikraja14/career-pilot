@@ -101,14 +101,14 @@ python main.py          # Interactive menu with all features
 
 ```bash
 # Resume
-python resume_builder.py                    # Generate PDF
-python docx_export.py                       # Generate DOCX
-python main.py analyze                      # Score your resume
+python -m resume.builder                     # Generate PDF
+python -m resume.docx_export                  # Generate DOCX
+python main.py analyze                        # Score your resume
 
 # JD-specific
-python jd_tailorer.py --jd-file jd.txt      # Tailored resume
-python cover_letter.py --company "Google" --role "Software Engineer"
-python keyword_gap.py --jd-file jd.txt      # ATS gap analysis
+python -m resume.tailorer --jd-file jd.txt     # Tailored resume
+python -m jobs.cover_letter --company "Google" --role "Software Engineer"
+python -m jobs.keyword_gap --jd-file jd.txt    # ATS gap analysis
 
 # Auto-apply
 python -m apply.run linkedin                # LinkedIn Easy Apply
@@ -121,10 +121,10 @@ python -m apply.finder                      # Interactive job discovery
 python -m apply.finder --location Bangalore --min-score 50
 
 # Tracking & research
-python dashboard.py                         # Open visual dashboard
-python salary_lookup.py "Google" "SDE"      # Salary research
-python connection_finder.py "Microsoft"     # Find people to connect with
-python -m pytest tests/ -v                  # Run 121 tests
+python -m tracking.dashboard                   # Open visual dashboard
+python -m research.salary_lookup "Google" "SDE"  # Salary research
+python -m research.connection_finder "Microsoft" # Find people to connect with
+python -m pytest tests/ -v                      # Run 121 tests
 ```
 
 ---
@@ -133,32 +133,34 @@ python -m pytest tests/ -v                  # Run 121 tests
 
 ```
 career-pilot/
-├── main.py                     # Interactive menu (entry point)
-├── resume_builder.py           # PDF resume generator
-├── resume_data.example.py      # Template for your resume data
-├── resume_analyzer.py          # Resume scoring engine
-├── jd_tailorer.py              # JD keyword extraction + tailoring
-├── cover_letter.py             # Cover letter generator
-├── keyword_gap.py              # ATS keyword gap analysis
-├── dashboard.py                # HTML dashboard generator
-├── docx_export.py              # DOCX export
-├── version_tracker.py          # Resume version history
-├── salary_lookup.py            # Salary research URLs
-├── connection_finder.py        # LinkedIn connection URLs
-├── job_matcher.py              # Job search plan + tracker
-├── config.py                   # Your target roles, companies, skills
-├── requirements.txt            # Python deps
-├── package.json                # Playwright dep
-├── apply/
-│   ├── run.py                  # Auto-apply orchestrator
-│   ├── linkedin.py             # LinkedIn bot
-│   ├── naukri.py               # Naukri bot
-│   ├── finder.py               # Job finder + JD scorer
-│   ├── base.py                 # Browser setup & form helpers
-│   └── safety.py               # Rate limiting & safety
+├── main.py                     # Entry point (interactive menu + CLI)
+├── config.py                   # Your target roles, companies, skills, weights
+├── resume_data.example.py      # Template for your resume (copy → resume_data.py)
+├── resume/                     # Resume tools
+│   ├── builder.py              # ATS-optimized PDF generator
+│   ├── analyzer.py             # 5-dimension scoring engine
+│   ├── docx_export.py          # Word document export
+│   └── tailorer.py             # JD keyword extraction + resume tailoring
+├── jobs/                       # Job matching & applications
+│   ├── matcher.py              # Job search plan + application tracker
+│   ├── keyword_gap.py          # ATS keyword gap analysis
+│   └── cover_letter.py         # Template-based cover letter generator
+├── apply/                      # Auto-apply bots
+│   ├── run.py                  # Orchestrator (CLI entry point)
+│   ├── linkedin.py             # LinkedIn Easy Apply + External Apply
+│   ├── naukri.py               # Naukri Quick Apply
+│   ├── finder.py               # Interactive job finder + JD scorer
+│   ├── base.py                 # Browser setup, form helpers, detection
+│   └── safety.py               # Rate limiting, daily caps, cooldowns
+├── tracking/                   # Progress tracking
+│   ├── dashboard.py            # HTML dashboard with Chart.js
+│   └── version_tracker.py      # Resume version history
+├── research/                   # Career research
+│   ├── salary_lookup.py        # Salary research URL generator
+│   └── connection_finder.py    # LinkedIn networking URL generator
 ├── tests/                      # 121 tests (pytest)
 ├── data/
-│   └── answers.example.json    # Template for form answers
+│   └── answers.example.json    # Template for form auto-fill answers
 ├── output/                     # Generated files (gitignored)
 └── reports/                    # Analysis reports (gitignored)
 ```

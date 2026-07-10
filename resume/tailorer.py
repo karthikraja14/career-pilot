@@ -290,7 +290,7 @@ def run_tailorer(jd_text: str = None, jd_file: str = None, output_path: str = No
     # Generate PDF if resume_builder is available
     if output_path:
         try:
-            from resume_builder import build_resume
+            from resume.builder import build_resume
             os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
             build_resume(tailored, output_path)
             print(f"\n  Tailored resume saved: {output_path}")

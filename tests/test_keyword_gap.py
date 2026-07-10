@@ -3,7 +3,7 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from keyword_gap import analyze_keyword_gap, extract_resume_keywords
+from jobs.keyword_gap import analyze_keyword_gap, extract_resume_keywords
 from tests.conftest import SAMPLE_RESUME_DATA, SAMPLE_JD, SAMPLE_JD_UNRELATED
 
 

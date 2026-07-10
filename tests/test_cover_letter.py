@@ -3,8 +3,8 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from cover_letter import generate_cover_letter, save_cover_letter
-from jd_tailorer import extract_jd_keywords
+from jobs.cover_letter import generate_cover_letter, save_cover_letter
+from resume.tailorer import extract_jd_keywords
 from tests.conftest import SAMPLE_RESUME_DATA, SAMPLE_JD, SAMPLE_JD_UNRELATED
 
 

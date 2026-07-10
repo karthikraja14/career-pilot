@@ -3,7 +3,7 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from resume_analyzer import (
+from resume.analyzer import (
     extract_contact_info, detect_sections,
     score_completeness, score_ats_compatibility,
     score_impact_statements, score_skills_relevance,

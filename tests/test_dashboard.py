@@ -5,7 +5,7 @@ import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from dashboard import generate_dashboard, _gather_stats
+from tracking.dashboard import generate_dashboard, _gather_stats
 
 
 class TestGenerateDashboard:
@@ -100,9 +100,9 @@ class TestGenerateDashboard:
 class TestGatherStats:
     def test_returns_valid_structure(self, monkeypatch):
         """Test with no files present."""
-        monkeypatch.setattr("dashboard.TRACKER_FILE", "/nonexistent/path.json")
-        monkeypatch.setattr("dashboard.STATE_FILE", "/nonexistent/state.json")
-        monkeypatch.setattr("dashboard.FOUND_JOBS_FILE", "/nonexistent/found.json")
+        monkeypatch.setattr("tracking.dashboard.TRACKER_FILE", "/nonexistent/path.json")
+        monkeypatch.setattr("tracking.dashboard.STATE_FILE", "/nonexistent/state.json")
+        monkeypatch.setattr("tracking.dashboard.FOUND_JOBS_FILE", "/nonexistent/found.json")
         stats = _gather_stats()
         assert stats["total_applications"] == 0
         assert "funnel" in stats

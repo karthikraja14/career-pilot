@@ -3,7 +3,7 @@ import pytest
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from jd_tailorer import extract_jd_keywords, tailor_resume_data, generate_match_report
+from resume.tailorer import extract_jd_keywords, tailor_resume_data, generate_match_report
 from tests.conftest import SAMPLE_RESUME_DATA, SAMPLE_JD, SAMPLE_JD_MINIMAL, SAMPLE_JD_UNRELATED
 
 

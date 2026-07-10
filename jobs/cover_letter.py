@@ -260,7 +260,7 @@ def run_cover_letter(company: str = None, role: str = None,
             jd_text = f.read()
 
     if jd_text:
-        from jd_tailorer import extract_jd_keywords
+        from resume.tailorer import extract_jd_keywords
         jd_keywords = extract_jd_keywords(jd_text)
 
     letter = generate_cover_letter(RESUME_DATA, company, role, jd_keywords)

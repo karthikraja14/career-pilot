@@ -6,7 +6,7 @@ Logs every resume submission with: company, role, resume variant used,
 tailoring keywords (if any), and timestamp.
 
 Usage:
-  from version_tracker import record_version, get_version_history
+  from tracking.version_tracker import record_version, get_version_history
 """
 
 import os

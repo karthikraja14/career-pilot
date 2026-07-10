@@ -16,7 +16,7 @@ import re
 from collections import Counter
 
 from config import TRENDING_SKILLS
-from jd_tailorer import extract_jd_keywords, STOP_WORDS
+from resume.tailorer import extract_jd_keywords, STOP_WORDS
 
 
 def extract_resume_keywords(resume_text: str) -> set:
@@ -217,7 +217,7 @@ def run_gap_analysis(jd_text: str = None, jd_file: str = None,
 
     # Load resume text
     if resume_pdf and os.path.exists(resume_pdf):
-        from resume_analyzer import extract_text_from_pdf
+        from resume.analyzer import extract_text_from_pdf
         resume_text, _ = extract_text_from_pdf(resume_pdf)
     else:
         # Build resume text from resume_data

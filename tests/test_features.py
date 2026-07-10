@@ -5,12 +5,12 @@ import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from version_tracker import (
+from tracking.version_tracker import (
     record_version, get_version_history, check_duplicate_company,
     get_resume_for_company, _load_versions, _save_versions,
 )
-from salary_lookup import generate_salary_urls, batch_salary_lookup
-from connection_finder import generate_connection_urls, suggest_target_companies
+from research.salary_lookup import generate_salary_urls, batch_salary_lookup
+from research.connection_finder import generate_connection_urls, suggest_target_companies
 
 
 # ─── Version Tracker Tests ────────────────────────────────────────────────────
@@ -18,7 +18,7 @@ from connection_finder import generate_connection_urls, suggest_target_companies
 class TestVersionTracker:
     def test_record_and_retrieve(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
 
         entry = record_version("Google", "QA Lead", "resume.pdf")
         assert entry["company"] == "Google"
@@ -29,7 +29,7 @@ class TestVersionTracker:
 
     def test_duplicate_detection(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
 
         record_version("Google", "QA Lead", "resume.pdf")
         assert check_duplicate_company("Google") is True
@@ -37,7 +37,7 @@ class TestVersionTracker:
 
     def test_filter_by_company(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
 
         record_version("Google", "QA Lead", "resume.pdf")
         record_version("Microsoft", "SDET", "resume.pdf")
@@ -50,7 +50,7 @@ class TestVersionTracker:
 
     def test_get_resume_for_company(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
 
         record_version("Google", "V1", "resume_v1.pdf")
         record_version("Google", "V2", "resume_v2.pdf")
@@ -59,13 +59,13 @@ class TestVersionTracker:
 
     def test_no_history(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
         assert get_version_history() == []
         assert get_resume_for_company("Nonexistent") is None
 
     def test_tailored_flag(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
 
         record_version("Google", "QA", "r.pdf", tailored=True,
                        keywords=["python", "selenium"])
@@ -75,7 +75,7 @@ class TestVersionTracker:
 
     def test_cover_letter_tracked(self, temp_dir, monkeypatch):
         vfile = os.path.join(temp_dir, "versions.json")
-        monkeypatch.setattr("version_tracker.VERSION_FILE", vfile)
+        monkeypatch.setattr("tracking.version_tracker.VERSION_FILE", vfile)
 
         record_version("Google", "QA", "r.pdf", cover_letter="cl.txt")
         entry = get_version_history()[0]
@@ -145,13 +145,13 @@ class TestConnectionFinder:
 
 class TestDuplicateDetection:
     def test_detect_duplicate(self, temp_dir, monkeypatch):
-        from job_matcher import add_application, check_duplicate_application
+        from jobs.matcher import add_application, check_duplicate_application
         app_dir = os.path.join(temp_dir, "applications")
         os.makedirs(app_dir, exist_ok=True)
         tracker_file = os.path.join(app_dir, "tracker.json")
         tracker_csv = os.path.join(app_dir, "tracker.csv")
-        monkeypatch.setattr("job_matcher.TRACKER_FILE", tracker_file)
-        monkeypatch.setattr("job_matcher.TRACKER_CSV", tracker_csv)
+        monkeypatch.setattr("jobs.matcher.TRACKER_FILE", tracker_file)
+        monkeypatch.setattr("jobs.matcher.TRACKER_CSV", tracker_csv)
 
         add_application("Google", "QA Lead", "LinkedIn")
         result = check_duplicate_application("Google")
@@ -159,26 +159,26 @@ class TestDuplicateDetection:
         assert result["company"] == "Google"
 
     def test_no_false_positive(self, temp_dir, monkeypatch):
-        from job_matcher import add_application, check_duplicate_application
+        from jobs.matcher import add_application, check_duplicate_application
         app_dir = os.path.join(temp_dir, "applications")
         os.makedirs(app_dir, exist_ok=True)
         tracker_file = os.path.join(app_dir, "tracker.json")
         tracker_csv = os.path.join(app_dir, "tracker.csv")
-        monkeypatch.setattr("job_matcher.TRACKER_FILE", tracker_file)
-        monkeypatch.setattr("job_matcher.TRACKER_CSV", tracker_csv)
+        monkeypatch.setattr("jobs.matcher.TRACKER_FILE", tracker_file)
+        monkeypatch.setattr("jobs.matcher.TRACKER_CSV", tracker_csv)
 
         add_application("Google", "QA Lead", "LinkedIn")
         result = check_duplicate_application("Microsoft")
         assert result is None
 
     def test_case_insensitive(self, temp_dir, monkeypatch):
-        from job_matcher import add_application, check_duplicate_application
+        from jobs.matcher import add_application, check_duplicate_application
         app_dir = os.path.join(temp_dir, "applications")
         os.makedirs(app_dir, exist_ok=True)
         tracker_file = os.path.join(app_dir, "tracker.json")
         tracker_csv = os.path.join(app_dir, "tracker.csv")
-        monkeypatch.setattr("job_matcher.TRACKER_FILE", tracker_file)
-        monkeypatch.setattr("job_matcher.TRACKER_CSV", tracker_csv)
+        monkeypatch.setattr("jobs.matcher.TRACKER_FILE", tracker_file)
+        monkeypatch.setattr("jobs.matcher.TRACKER_CSV", tracker_csv)
 
         add_application("Google", "QA Lead", "LinkedIn")
         result = check_duplicate_application("google")

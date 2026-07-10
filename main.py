@@ -9,8 +9,8 @@ import os
 import sys
 import json
 
-from resume_analyzer import run_analysis
-from job_matcher import (
+from resume.analyzer import run_analysis
+from jobs.matcher import (
     build_profile_from_analysis,
     generate_job_search_plan,
     add_application,
@@ -216,33 +216,33 @@ def main():
         elif choice == "6":
             menu_stats()
         elif choice == "7":
-            from keyword_gap import run_gap_analysis
+            from jobs.keyword_gap import run_gap_analysis
             run_gap_analysis()
         elif choice == "8":
-            from jd_tailorer import run_tailorer
+            from resume.tailorer import run_tailorer
             run_tailorer(output_path="output/Tailored_Resume.pdf")
         elif choice == "9":
-            from cover_letter import run_cover_letter
+            from jobs.cover_letter import run_cover_letter
             run_cover_letter()
         elif choice == "10":
-            from docx_export import run_docx_export
+            from resume.docx_export import run_docx_export
             run_docx_export()
         elif choice == "11":
-            from dashboard import run_dashboard
+            from tracking.dashboard import run_dashboard
             run_dashboard()
         elif choice == "12":
-            from salary_lookup import print_salary_urls
+            from research.salary_lookup import print_salary_urls
             company = input("  Company: ").strip()
             role = input("  Role: ").strip()
             if company and role:
                 print_salary_urls(company, role)
         elif choice == "13":
-            from connection_finder import print_connection_urls
+            from research.connection_finder import print_connection_urls
             company = input("  Company: ").strip()
             if company:
                 print_connection_urls(company)
         elif choice == "14":
-            from version_tracker import print_version_history
+            from tracking.version_tracker import print_version_history
             print_version_history()
         elif choice == "0":
             print("\n  Good luck with your job search! 🚀\n")
@@ -264,16 +264,16 @@ if __name__ == "__main__":
         elif cmd == "list":
             menu_list_applications()
         elif cmd == "dashboard":
-            from dashboard import run_dashboard
+            from tracking.dashboard import run_dashboard
             run_dashboard()
         elif cmd == "gap":
-            from keyword_gap import run_gap_analysis
+            from jobs.keyword_gap import run_gap_analysis
             run_gap_analysis()
         elif cmd == "docx":
-            from docx_export import run_docx_export
+            from resume.docx_export import run_docx_export
             run_docx_export()
         elif cmd == "versions":
-            from version_tracker import print_version_history
+            from tracking.version_tracker import print_version_history
             print_version_history()
         else:
             print(f"Unknown command: {cmd}")
