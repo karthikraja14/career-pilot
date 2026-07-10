@@ -217,6 +217,7 @@ If this tool helped you land interviews or save hours of manual applications, co
 - 🐛 Report bugs or suggest features via [Issues](../../issues)
 - 🔀 Contribute code via Pull Requests
 - 📣 Share with friends who are job hunting
+- 🌐 Check out more tools at [karthikraja.in](https://karthikraja.in)
 
 ---
 
