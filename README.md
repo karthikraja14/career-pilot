@@ -206,10 +206,10 @@ The auto-apply system is designed to keep your accounts safe:
 
 ## Support the Project
 
-If this tool helped you land interviews or save hours of manual applications, consider buying me a coffee ☕
+If this tool helped you land interviews or save hours of manual applications, consider sponsoring:
 
-<a href="https://buymeacoffee.com/karthikraja14">
-  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=karthikraja14&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" />
+<a href="https://github.com/sponsors/karthikraja14">
+  <img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?logo=github&style=for-the-badge" alt="GitHub Sponsors" />
 </a>
 
 **Other ways to support:**
