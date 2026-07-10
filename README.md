@@ -72,7 +72,7 @@ Works for **any role**: engineering, product, design, data, marketing, finance, 
 ### 1. Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/career-pilot.git
+git clone https://github.com/karthikraja14/career-pilot.git
 cd career-pilot
 pip install -r requirements.txt
 npx playwright install chromium
@@ -208,8 +208,8 @@ The auto-apply system is designed to keep your accounts safe:
 
 If this tool helped you land interviews or save hours of manual applications, consider buying me a coffee ☕
 
-<a href="https://buymeacoffee.com/YOUR_USERNAME">
-  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=YOUR_USERNAME&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" />
+<a href="https://buymeacoffee.com/karthikraja14">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=karthikraja14&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" />
 </a>
 
 **Other ways to support:**
